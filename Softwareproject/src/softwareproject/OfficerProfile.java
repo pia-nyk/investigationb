@@ -36,7 +36,8 @@ public class OfficerProfile extends javax.swing.JFrame {
          cl = (CardLayout)jPanel3.getLayout();
          this.officer_name = name;
          this.officer_id = id;
-           
+         
+            
         
     }
   /**
@@ -169,8 +170,18 @@ public class OfficerProfile extends javax.swing.JFrame {
         });
 
         jButton6.setText("View Suspects");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("View Evidence");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -630,9 +641,8 @@ public class OfficerProfile extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-        new Officeradd(this.admin_name,this.admin_id).setVisible(true);
-       this.setVisible(false);
+    new Evidenceadd(this.officer_name,this.officer_id).setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -698,6 +708,14 @@ public class OfficerProfile extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Error Occured");
        }
     }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

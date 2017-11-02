@@ -27,12 +27,29 @@ public class Prof extends javax.swing.JFrame {
     public Prof() {
     
             initComponents();    
+            
+            try{
+          Connection  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/InvestigationBureau","root","");
+         
+          String sql = "Select * from Case2";
+          Statement s = conn.createStatement();
+          ResultSet rs = s.executeQuery(sql);
+          //System.out.println("Okay");
+          while(rs.next()){
+              System.out.println(rs.getString(2));
+          }
+          
+        }
+        catch(Exception e){
+            System.out.print(e);
+        }
          
     }
     public Prof(String name,int id){
         initComponents();
         //jLabel3.setText("Welcome Mr."+name);
          cl = (CardLayout)jPanel3.getLayout();
+         
          
        
         
@@ -169,6 +186,7 @@ public class Prof extends javax.swing.JFrame {
             public void run() {
                 // JFrame.setDefaultLookAndFeelDecorated(true);
                 new Prof().setVisible(true);
+                System.out.println("Okay");
             }
         });
     }

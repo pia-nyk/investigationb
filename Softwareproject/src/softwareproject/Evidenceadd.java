@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-public class SuspectAdd extends javax.swing.JFrame {
+public class Evidenceadd extends javax.swing.JFrame {
 
     /**
      * Creates new form frame1
@@ -30,13 +30,13 @@ public class SuspectAdd extends javax.swing.JFrame {
     int officer_id;
     Connection conn;
     
-    public SuspectAdd() {
+    public Evidenceadd() {
     
             initComponents();  
          
     }
     
-    public SuspectAdd(String name,int id){
+    public Evidenceadd(String name,int id){
         initComponents();
         this.officer_id = id;
         this.officer_name = name;
@@ -85,13 +85,12 @@ public class SuspectAdd extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField7 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,19 +126,19 @@ public class SuspectAdd extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Relation:");
+        jLabel3.setText("Points:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 300, 140, 22);
+        jLabel3.setBounds(20, 290, 140, 20);
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Contact:");
+        jLabel4.setText("Evidence:");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(20, 200, 140, 22);
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Address:");
+        jLabel5.setText("Suspect:");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(20, 240, 140, 22);
 
@@ -151,13 +150,13 @@ public class SuspectAdd extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Name:");
+        jLabel8.setText("Evidence Type:");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(20, 170, 140, 22);
         jPanel2.add(jTextField3);
         jTextField3.setBounds(170, 200, 270, 30);
         jPanel2.add(jTextField5);
-        jTextField5.setBounds(170, 300, 270, 30);
+        jTextField5.setBounds(170, 280, 270, 30);
 
         jButton1.setText("Upload");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +165,9 @@ public class SuspectAdd extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(20, 390, 88, 29);
+        jButton1.setBounds(20, 370, 88, 29);
 
-        jButton2.setText("Add Officer");
+        jButton2.setText("Add Evidence");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -186,35 +185,32 @@ public class SuspectAdd extends javax.swing.JFrame {
         jPanel2.add(jButton3);
         jButton3.setBounds(170, 570, 75, 29);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(170, 120, 96, 27);
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(170, 166, 270, 30);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(170, 240, 270, 50);
+        jComboBox1.setBounds(170, 120, 120, 27);
 
         jLabel9.setOpaque(true);
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(170, 350, 100, 110);
+        jLabel9.setBounds(170, 330, 100, 110);
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Note:");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(20, 480, 140, 22);
+        jLabel10.setBounds(20, 470, 140, 22);
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(170, 480, 270, 50);
+        jScrollPane3.setBounds(170, 470, 270, 50);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Physical", "Logical" }));
+        jPanel2.add(jComboBox2);
+        jComboBox2.setBounds(170, 160, 120, 27);
+
+        jPanel2.add(jComboBox3);
+        jComboBox3.setBounds(170, 240, 120, 27);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/softwareproject/2055138-dark-blue-abstract-background-resembling-wooden-texture-or-cracks.jpg"))); // NOI18N
         jPanel2.add(jLabel1);
@@ -252,51 +248,7 @@ public class SuspectAdd extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/InvestigationBureau","root","");
-        
-           String name,address,relation,note;
-           int contact;
-           
-           String caseid = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
-           int id = Integer.parseInt(caseid);
-           
-           name = jTextField7.getText();
-           address = jTextArea2.getText();
-           //email = jTextField4.getText();
-           //area = jTextField5.getText();
-         //  imageicon =jTextField6.getText();
-           
-         contact = Integer.parseInt(jTextField3.getText());
-         relation = jTextField5.getText();
-         note = jTextArea3.getText();
-         
-       
-            String sql = "Insert into Suspect (CaseID,SuspectID,Name,Contact,Relation,Image,Note,Address) values (?,?,?,?,?,?,?,?)";
-           PreparedStatement ps = conn.prepareStatement(sql);
-           ps.setInt(1, id);
-           ps.setInt(2,1);
-           ps.setString(3, name);
-           ps.setInt(4, contact);
-           ps.setString(5, relation);
-           ps.setString(6, image);
-           ps.setString(7, note);
-           ps.setString(8, address);
-           
-           ResultSet rs = ps.executeQuery();
-          //((Connection)conn).createStatement().execute(sql);
-              JOptionPane.showMessageDialog(null, "Suspect successfully added");
-              //  new Profile(this.admin_name,this.admin_id).setVisible(true);
-                                        this.setVisible(false);
-
-                        
-        }
-        
-        catch(Exception e){
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Error Occured");
-        }
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -322,14 +274,30 @@ public class SuspectAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SuspectAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Evidenceadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SuspectAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Evidenceadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SuspectAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Evidenceadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SuspectAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Evidenceadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -351,7 +319,7 @@ public class SuspectAdd extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 // JFrame.setDefaultLookAndFeelDecorated(true);
-                new SuspectAdd().setVisible(true);
+                new Evidenceadd().setVisible(true);
             }
         });
     }
@@ -361,6 +329,8 @@ public class SuspectAdd extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -372,13 +342,10 @@ public class SuspectAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

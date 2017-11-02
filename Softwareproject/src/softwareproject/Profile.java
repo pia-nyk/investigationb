@@ -59,6 +59,31 @@ public class Profile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error Occured");
         }
         
+          try{
+          Connection  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/InvestigationBureau","root","");
+         
+          String sql = "Select * from Case2";
+          Statement s = conn.createStatement();
+          ResultSet rs = s.executeQuery(sql);
+          //System.out.println("Okay");
+          while(rs.next()){
+              jComboBox2.addItem(rs.getString(2));
+          }
+          
+          sql="Select * from Officer";
+          s= conn.createStatement();
+          rs = s.executeQuery(sql);
+          
+          while(rs.next()){
+              jComboBox4.addItem(rs.getString(2));
+          }
+          
+        }
+        catch(Exception e){
+            System.out.print(e);
+        }
+         
+        
          
         
     }
@@ -559,14 +584,11 @@ public class Profile extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Case Name:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton17.setText("Assign");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -787,24 +809,18 @@ public class Profile extends javax.swing.JFrame {
 
             
              
-            String query = "Insert into Case (CaseID,Case_Name,Description,Type,Complainant_Name,Allocated) values (?,?,?,?,?,?)";
+            String query = "Insert into Case2 (CaseID,Case_Name,Description,Type,Complainant_Name,Alloted) values ('"+case_id+"','"+case_name+"','"+description+"','"+type+"','"+complainant_name+"','0')";
           // System.out.println(query);
-           PreparedStatement pst = conn.prepareStatement(query);
-           pst.setInt(1, case_id);
-           pst.setString(2, case_name);
-           pst.setString(3, description);
-           pst.setString(4, type);
-           pst.setString(5, complainant_name);
-           pst.setInt(6, 0);
-           
-           pst.executeQuery();
+          
            
           // JOptionPane.showMessageDialog(null, "Case details Saved");
           
             
             
-           // ((Connection)conn).createStatement().execute(query);
-                        this.setVisible(false);
+           ((Connection)conn).createStatement().execute(query);
+                      //  this.setVisible(false);
+                      
+                      cl.show(jPanel3, "card11");
                         
            // JFrame f = new JFrame();
           //  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -855,8 +871,10 @@ public class Profile extends javax.swing.JFrame {
         officername = jComboBox4.getItemAt(jComboBox4.getSelectedIndex());
        // officerID =
        
+       System.out.print(casename);
+       
        try{
-            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/InvestigationBureau","root","");
            // JOptionPane.showMessageDialog(null, "Connection Established");
            
@@ -867,26 +885,29 @@ public class Profile extends javax.swing.JFrame {
            
            if(rs.next()){
                oid = rs.getInt(1);
+               System.out.print(oid);
            }
            
-           sql = "Select * from Case where Case_Name=?";
+           sql = "Select * from Case2 where Case_Name=?";
            ps = conn.prepareStatement(sql);
            ps.setString(1,casename);
             rs = ps.executeQuery();
             
             if(rs.next()){
                 cid = rs.getInt(1);
+                System.out.print(cid);
             }
+            
+                        java.util.Date date=new java.util.Date();
            
-          sql = "Insert into OfficerCase (OfficerID,CaseID,DateAssigned) values (?,?,?)";
-            ps = conn.prepareStatement(sql);
-           ps.setInt(1, cid);
-           ps.setInt(2, oid);
-            java.util.Date date=new java.util.Date();
-           ps.setTimestamp(3, new java.sql.Timestamp(date.getTime()));
-           ps.executeQuery();
+          sql = "Insert into OfficerCase (OfficerID,CaseID,DateAssigned) values ('"+oid+"','"+cid+"','"+ new java.sql.Timestamp(date.getTime())+"')";
+          System.out.println(sql);
+         ((Connection)conn).createStatement().execute(sql);  
+          
            
-           sql = "Update Case set Allocated='1' where CaseID ="+cid+"";
+           System.out.print(date);
+           
+           sql = "Update Case2 set Alloted='1' where CaseID ='"+cid+"'";
             ((Connection)conn).createStatement().execute(sql);
              
            
@@ -894,6 +915,7 @@ public class Profile extends javax.swing.JFrame {
            cl.show(jPanel3, "card11");
        }
        catch(Exception e){
+           System.out.println(e);
            JOptionPane.showMessageDialog(null, "Error Occured");
        }
     }//GEN-LAST:event_jButton17ActionPerformed
