@@ -51,10 +51,8 @@ public class frame2 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\VIJAY MORE\\Desktop\\dimple vjti notes\\third year\\lab\\SE\\Final.jpg")); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 100, 110);
+        jLabel1.setBounds(0, 0, 110, 110);
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(0, 0, 204));
@@ -166,8 +164,6 @@ public class frame2 extends javax.swing.JFrame {
 
         jPanel3.add(jPanel2);
         jPanel2.setBounds(10, 120, 450, 240);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\VIJAY MORE\\Desktop\\dimple vjti notes\\third year\\lab\\SE\\2055138-dark-blue-abstract-background-resembling-wooden-texture-or-cracks.jpg")); // NOI18N
         jPanel3.add(jLabel2);
         jLabel2.setBounds(0, 0, 470, 370);
 
