@@ -154,7 +154,7 @@ public class Admin_login extends javax.swing.JFrame {
           ResultSet rs=ps.executeQuery();
           if(rs.next()){
               setVisible(false);
-              welcome wc=new welcome();
+              Welcome wc=new Welcome();
               wc.setVisible(true);
           }
           else
