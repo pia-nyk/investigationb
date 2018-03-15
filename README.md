@@ -1,15 +1,18 @@
 # Investigation Bureau
 Online Police Station Management Software 
 
-Functionalities:
-Add case
-Assign case
-Add Suspects to a case
-Add evidences to the case
-Add FIR
-View Case history
+<b>Functionalities:</b>
+<ul>
+  <li>Add case </li>
+  <li>Assign case </li>
+  <li>Add Suspects to a case </li>
+  <li>Add evidences to the case </li>
+  <li>Add FIR</li>
+  <li>View Case history</li>
+</ul>
 
-Softwares Used:
-Netbeans for Java
-MySQL database
-
+<b>Softwares Used:</b>
+<ul>
+  <li>Netbeans for Java</li>
+  <li>MySQL database</li>
+</ul>
